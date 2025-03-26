@@ -1,0 +1,2 @@
+Please save the blue shopping cart icon image from the design as "logo.png" in this directory.
+The logo should be a white cart icon on a blue background. 
