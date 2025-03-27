@@ -450,7 +450,7 @@ class _ProductListPageState extends State<ProductListPage>
 
                   // Price Range
                   Text(
-                    'Price Range: \$${_priceRange.start.toInt()} - \$${_priceRange.end.toInt()}',
+                    'Price Range: ₹${_priceRange.start.toInt()} - ₹${_priceRange.end.toInt()}',
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -465,8 +465,8 @@ class _ProductListPageState extends State<ProductListPage>
                     activeColor: AppTheme.accentColor,
                     inactiveColor: Colors.white.withOpacity(0.2),
                     labels: RangeLabels(
-                      '\$${_priceRange.start.toInt()}',
-                      '\$${_priceRange.end.toInt()}',
+                      '₹${_priceRange.start.toInt()}',
+                      '₹${_priceRange.end.toInt()}',
                     ),
                     onChanged: (RangeValues values) {
                       setState(() {
@@ -805,7 +805,7 @@ class _ProductCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '\$${product.price.toStringAsFixed(2)}',
+                    '₹${product.price.toStringAsFixed(2)}',
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.9),
                       fontWeight: FontWeight.bold,

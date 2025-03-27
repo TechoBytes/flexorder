@@ -183,7 +183,7 @@ class _CartPageState extends State<CartPage> {
                           ),
                         ),
                         subtitle: Text(
-                          'Estimated delivery time: 2-3 hrs • \$${_deliveryFee.toStringAsFixed(2)}',
+                          'Estimated delivery time: 2-3 hrs • ₹${_deliveryFee.toStringAsFixed(2)}',
                           style: TextStyle(
                             color: Colors.white.withOpacity(0.7),
                             fontSize: 12,
@@ -263,7 +263,7 @@ class _CartPageState extends State<CartPage> {
                     style: TextStyle(color: Colors.white.withOpacity(0.7)),
                   ),
                   Text(
-                    '\$${_subtotal.toStringAsFixed(2)}',
+                    '₹${_subtotal.toStringAsFixed(2)}',
                     style: const TextStyle(color: Colors.white),
                   ),
                 ],
@@ -280,8 +280,8 @@ class _CartPageState extends State<CartPage> {
                       style: TextStyle(color: Colors.white.withOpacity(0.7)),
                     ),
                     Text(
-                      '\$${_deliveryFee.toStringAsFixed(2)}',
-                      style: const TextStyle(color: Colors.white),
+                      '₹${_deliveryFee.toStringAsFixed(2)}',
+                      style: TextStyle(color: Colors.white.withOpacity(0.7)),
                     ),
                   ],
                 ),
@@ -299,11 +299,11 @@ class _CartPageState extends State<CartPage> {
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontSize: 18,
                     ),
                   ),
                   Text(
-                    '\$${_total.toStringAsFixed(2)}',
+                    '₹${_total.toStringAsFixed(2)}',
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -438,14 +438,14 @@ class _CartItemCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '\$${item.price.toStringAsFixed(2)}',
+                        '₹${item.price.toStringAsFixed(2)}',
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
                         ),
                       ),
                       Text(
-                        '\$${(item.price * item.quantity).toStringAsFixed(2)}',
+                        '₹${(item.price * item.quantity).toStringAsFixed(2)}',
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

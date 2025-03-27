@@ -7,18 +7,17 @@ import '../../../../core/theme/app_theme.dart';
 class OrderConfirmationPage extends StatelessWidget {
   final String orderId;
 
-  const OrderConfirmationPage({
-    super.key,
-    required this.orderId,
-  });
+  const OrderConfirmationPage({super.key, required this.orderId});
 
   @override
   Widget build(BuildContext context) {
     // Mock order data (in a real app, this would come from API/state management)
     final isDelivery = true;
     final orderDate = DateTime.now();
-    final formattedDate = '${orderDate.day}/${orderDate.month}/${orderDate.year} ${orderDate.hour}:${orderDate.minute.toString().padLeft(2, '0')}';
-    final estimatedDelivery = 'Today, ${orderDate.hour + 2}:${orderDate.minute.toString().padLeft(2, '0')}';
+    final formattedDate =
+        '${orderDate.day}/${orderDate.month}/${orderDate.year} ${orderDate.hour}:${orderDate.minute.toString().padLeft(2, '0')}';
+    final estimatedDelivery =
+        'Today, ${orderDate.hour + 2}:${orderDate.minute.toString().padLeft(2, '0')}';
     final pickupSlot = 'Today, 2:00 PM - 4:00 PM';
     final subtotal = 59.95;
     final deliveryFee = 5.99;
@@ -28,22 +27,23 @@ class OrderConfirmationPage extends StatelessWidget {
     // Mock order items
     final orderItems = [
       {
-        'name': 'Rice Bag',
-        'description': '5kg premium basmati rice',
+        'name': 'Organic Rice (10kg)',
+        'description':
+            'Organic basmati rice, perfect for restaurants and cafes',
         'quantity': 2,
-        'price': 18.99,
+        'price': 42.50,
       },
       {
-        'name': 'Dark Chocolate Bar',
-        'description': '100g premium dark chocolate',
+        'name': 'Premium Dark Chocolate',
+        'description': '70% Cacao premium dark chocolate bar, rich flavor',
         'quantity': 3,
-        'price': 3.99,
+        'price': 24.99,
       },
       {
-        'name': 'Coffee Beans',
-        'description': '250g premium arabica',
+        'name': 'Arabica Coffee Beans',
+        'description': 'Premium Arabica coffee beans, medium roast',
         'quantity': 1,
-        'price': 8.99,
+        'price': 35.99,
       },
     ];
 
@@ -69,11 +69,7 @@ class OrderConfirmationPage extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   padding: const EdgeInsets.all(16),
-                  child: const Icon(
-                    Icons.check,
-                    color: Colors.white,
-                    size: 48,
-                  ),
+                  child: const Icon(Icons.check, color: Colors.white, size: 48),
                 ),
                 const SizedBox(height: 16),
                 const Text(
@@ -96,7 +92,7 @@ class OrderConfirmationPage extends StatelessWidget {
               ],
             ),
           ),
-          
+
           // Order Details
           Expanded(
             child: SingleChildScrollView(
@@ -143,9 +139,7 @@ class OrderConfirmationPage extends StatelessWidget {
                             ),
                             Text(
                               formattedDate,
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
@@ -163,9 +157,7 @@ class OrderConfirmationPage extends StatelessWidget {
                             Text(
                               // ignore: dead_code
                               isDelivery ? 'Delivery' : 'Pickup',
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
@@ -175,9 +167,7 @@ class OrderConfirmationPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              isDelivery 
-                                  ? 'Estimated Delivery' 
-                                  : 'Pickup Slot',
+                              isDelivery ? 'Estimated Delivery' : 'Pickup Slot',
                               style: TextStyle(
                                 color: Colors.white.withOpacity(0.7),
                                 fontSize: 14,
@@ -185,9 +175,7 @@ class OrderConfirmationPage extends StatelessWidget {
                             ),
                             Text(
                               isDelivery ? estimatedDelivery : pickupSlot,
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
@@ -204,9 +192,7 @@ class OrderConfirmationPage extends StatelessWidget {
                             ),
                             const Text(
                               'Cash on Delivery',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
+                              style: TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
@@ -214,7 +200,7 @@ class OrderConfirmationPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  
+
                   // Order Items
                   const Text(
                     'Order Items',
@@ -225,23 +211,25 @@ class OrderConfirmationPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  
+
                   Container(
                     decoration: AppTheme.contentBoxDecoration,
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       children: [
-                        ...orderItems.map((item) => _OrderItemTile(
-                          name: item['name'] as String,
-                          description: item['description'] as String,
-                          quantity: item['quantity'] as int,
-                          price: item['price'] as double,
-                        )),
+                        ...orderItems.map(
+                          (item) => _OrderItemTile(
+                            name: item['name'] as String,
+                            description: item['description'] as String,
+                            quantity: item['quantity'] as int,
+                            price: item['price'] as double,
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 24),
-                  
+
                   // Order Summary
                   const Text(
                     'Order Summary',
@@ -252,7 +240,7 @@ class OrderConfirmationPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  
+
                   Container(
                     decoration: AppTheme.contentBoxDecoration,
                     padding: const EdgeInsets.all(16),
@@ -268,10 +256,8 @@ class OrderConfirmationPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '\$${subtotal.toStringAsFixed(2)}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
+                              '₹${subtotal.toStringAsFixed(2)}',
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
@@ -287,10 +273,8 @@ class OrderConfirmationPage extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '\$${deliveryFee.toStringAsFixed(2)}',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                ),
+                                '₹${deliveryFee.toStringAsFixed(2)}',
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ],
                           ),
@@ -308,7 +292,7 @@ class OrderConfirmationPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '\$${total.toStringAsFixed(2)}',
+                              '₹${total.toStringAsFixed(2)}',
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -324,7 +308,7 @@ class OrderConfirmationPage extends StatelessWidget {
               ),
             ),
           ),
-          
+
           // Navigation Buttons
           Container(
             padding: const EdgeInsets.all(16),
@@ -349,15 +333,21 @@ class OrderConfirmationPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 16),
-                
+
                 // Track Order Button
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
                       if (isDelivery) {
-                        context.push('/order-tracking', extra: {'orderId': orderId});
+                        context.push(
+                          '/order-tracking',
+                          extra: {'orderId': orderId},
+                        );
                       } else {
-                        context.push('/pickup-status', extra: {'orderId': orderId});
+                        context.push(
+                          '/pickup-status',
+                          extra: {'orderId': orderId},
+                        );
                       }
                     },
                     style: AppTheme.primaryButtonStyle,
@@ -395,10 +385,7 @@ class _OrderItemTile extends StatelessWidget {
         children: [
           // Quantity
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: 4,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
               color: AppTheme.accentColor.withOpacity(0.2),
               borderRadius: BorderRadius.circular(4),
@@ -412,7 +399,7 @@ class _OrderItemTile extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          
+
           // Details
           Expanded(
             child: Column(
@@ -436,14 +423,14 @@ class _OrderItemTile extends StatelessWidget {
               ],
             ),
           ),
-          
+
           // Price
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               // Item price
               Text(
-                '\$${price.toStringAsFixed(2)}',
+                '₹${price.toStringAsFixed(2)}',
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.7),
                   fontSize: 12,
@@ -451,7 +438,7 @@ class _OrderItemTile extends StatelessWidget {
               ),
               // Total for item
               Text(
-                '\$${(price * quantity).toStringAsFixed(2)}',
+                '₹${(price * quantity).toStringAsFixed(2)}',
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -463,4 +450,4 @@ class _OrderItemTile extends StatelessWidget {
       ),
     );
   }
-} 
+}
